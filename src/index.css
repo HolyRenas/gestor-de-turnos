@@ -1,0 +1,56 @@
+/* src/index.css */
+
+/* ... as suas 3 linhas @tailwind ... */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- ESTILOS ESPECIAIS PARA A EXPORTAÇÃO DE PDF --- */
+
+/* Quando o nosso container tem a classe 'exporting-pdf'... */
+.exporting-pdf {
+  /* Removemos o scroll para garantir que a largura total é capturada */
+  overflow: visible !important;
+}
+
+.exporting-pdf .overflow-x-auto {
+  overflow: visible !important;
+}
+
+/* Forçamos as colunas "coladas" a comportarem-se como células normais */
+.exporting-pdf .sticky {
+  position: relative !important;
+}
+
+/* A magia para o alinhamento vertical */
+.exporting-pdf .pdf-center-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Garante que o div ocupa toda a altura da célula */
+}
+
+/* Para o nome e cargo do funcionário */
+.exporting-pdf .employee-info .role-badge {
+  /* Em vez de estar ao lado, passa para a linha de baixo */
+  display: block;
+  margin-top: 4px;
+}
+
+/* src/index.css */
+
+/* --- TÉCNICA DE POSICIONAMENTO MANUAL PARA OS CÍRCULOS --- */
+
+/* O círculo passa a ser um "contentor de posicionamento" */
+.exporting-pdf .pdf-daily-total-circle {
+  position: relative;
+}
+
+/* O texto dentro do círculo é posicionado de forma absoluta */
+.exporting-pdf .pdf-daily-total-circle span {
+  position: absolute;
+  top: 4px; /* <-- O nosso ajuste manual! */
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
